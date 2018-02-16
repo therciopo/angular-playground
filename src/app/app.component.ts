@@ -11,6 +11,6 @@ import { ProductListComponent } from './products/product-list.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title1 = 'Angular App';
+  pageTitle = 'Acme Product Management';
   name = 'Acme';
 }
