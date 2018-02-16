@@ -15,10 +15,10 @@ export class ProductListComponent
     showImage = false;
 
     _listFilter: string;
-    get listFilter(): string {
+    public get listFilter(): string {
         return this._listFilter;
     }
-    set listFilter(value: string) {
+    public set listFilter(value: string) {
         this._listFilter = value;
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
@@ -91,5 +91,9 @@ export class ProductListComponent
         filterBy = filterBy.toLocaleLowerCase();
         return this.products.filter((product: IProduct) =>
               product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
+    onRatingClick(product: IProduct): void {
+        this.pageTitle = 'Product List:' + product.starRating;
     }
 }

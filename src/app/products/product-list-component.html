@@ -45,7 +45,10 @@
                         <td>{{p.productCode | uppercase | convertToSpaces: '-'}}</td>
                         <td>{{p.releaseDate}}</td>
                         <td>{{p.price | currency:'BRL'}}</td>
-                        <td>{{p.starRating}}</td>                        
+                        <td>
+                            <app-star [product]='p'
+                            (ratingClicked)='onRatingClick($event)'></app-star>
+                        </td>                        
                     </tr>
                 </tbody>
             </table>
