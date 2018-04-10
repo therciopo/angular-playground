@@ -4,8 +4,8 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class='col-md-2'>Filter by:</div>
-            <div class="col-md-4">
+            <div class='col-md-4'>Filter by:</div>
+            <div class="col-md-2">
                 <input type='text'
                 [(ngModel)]='listFilter'/>
             </div>
@@ -47,7 +47,9 @@
                         <td>{{p.price | currency:'BRL'}}</td>
                         <td>
                             <app-star [product]='p'
-                            (ratingClicked)='onRatingClick($event)'></app-star>
+                            [rating]='p.starRating' 
+                            (notify)='onNotify($event)'
+                            (ratingClick)='onRatingClick($event)'></app-star>
                         </td>                        
                     </tr>
                 </tbody>
