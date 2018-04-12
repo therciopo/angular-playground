@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { IProduct } from './product';
 import { ProductService } from './product.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: './product-detail.component.html',
@@ -19,26 +20,18 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-
-     const id = +this._route.snapshot.paramMap.get('id');
-     this.pageTitle += `: ${id}`;
-     this.product = this.getProduct(id);
-    // const param = this._route.snapshot.paramMap.get('id');
-    // if (param) {
-    //   const id = +param;
-    //   this.getProduct(id);
-    // }
+    const param = this._route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getProduct(id);
+    }
   }
 
-  // getProduct(id: number) {
-  //   this._productService.getProduct(id).subscribe(
-  //     product => this.product = product,
-  //     error => this.errorMessage = <any>error);
-  // }
-
-  getProduct(id: number): IProduct {
-     return this._productService.getProduct(id);
-   }
+  getProduct(id: number) {
+    this._productService.getProduct(id).subscribe(
+      product => this.product = product,
+      error => this.errorMessage = <any>error);
+  }
 
   onBack(): void {
     this._router.navigate(['/products']);

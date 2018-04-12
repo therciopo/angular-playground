@@ -16,6 +16,7 @@ export class ProductListComponent
     showImage = false;
     ratingClicked: number;
     itemIdRatingClicked: number;
+    errorMessage: '';
 
     _listFilter: string;
     public get listFilter(): string {
@@ -37,8 +38,13 @@ export class ProductListComponent
     ngOnInit(): void {
         console.log('On Init');
 
-        this.products = this._productService.getProducts();
-        this.filteredProducts = this.products;
+
+        this._productService.getProducts()
+                .subscribe(products => {
+                    this.products = products;
+                    this.filteredProducts = this.products;
+                },
+                error => this.errorMessage = <any>error);
     }
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();

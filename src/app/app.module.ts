@@ -10,14 +10,14 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
-import { HeaderComponent  } from './shared/header.component';
+// import { HeaderComponent  } from './shared/header.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductGuardService } from './products/product-guard.service';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
+    // HeaderComponent,
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
@@ -40,6 +40,6 @@ import { ProductGuardService } from './products/product-guard.service';
     ])
   ],
   providers: [ProductGuardService],
-  bootstrap: [AppComponent, HeaderComponent]
+  bootstrap: [AppComponent/*, HeaderComponent*/]
 })
 export class AppModule { }
