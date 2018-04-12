@@ -27,25 +27,3 @@ implements OnInit, OnChanges {
          this.ratingClick.emit(this.product);
     }
 }
-
-
-// @Component({
-//     selector: 'app-star',
-//     templateUrl: './star.component.html',
-//     styleUrls: ['./star.component.css']
-// })
-// export class StarComponent implements OnChanges {
-//     @Input() rating: number;
-//     @Input() product: IProduct;
-//     starWidth: number;
-//     @Output() ratingClicked: EventEmitter<IProduct> =
-//         new EventEmitter<IProduct>();
-
-//     ngOnChanges(): void {
-//         this.starWidth = this.rating * 86 / 5;
-//     }
-//     onClick(rating: number): void {
-//         this.product.starRating = rating;
-//         this.ratingClicked.emit(this.product);
-//     }
-// }
