@@ -1,22 +1,29 @@
-import { Component, OnChanges, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnChanges, Input, EventEmitter, Output, OnInit } from '@angular/core';
 import { IProduct } from '../products/product';
 
 @Component({
-    selector: 'app-star',
-    templateUrl: './star.component.html',
-    styleUrls: ['./star.component.css']
+     selector: 'app-star',
+     templateUrl: './star.component.html',
+     styleUrls: ['./star.component.css']
 })
-export class StarComponent implements OnChanges {
+export class StarComponent
+implements OnInit, OnChanges {
     @Input() rating: number;
+    // @Input() itemId: number;
+    @Output() ratingClick: EventEmitter<IProduct> = new EventEmitter<IProduct>();
     @Input() product: IProduct;
-    starWidth: number;
-    @Output() ratingClicked: EventEmitter<IProduct> =
-        new EventEmitter<IProduct>();
+
+    inpustName: string;
+    ngOnInit() {
+      this.inpustName = this.product.productId + '_rating';
+    }
 
     ngOnChanges(): void {
-        this.starWidth = this.rating * 86 / 5;
+        this.rating = this.product.starRating;
     }
-    onClick(): void {
-        this.ratingClicked.emit(this.product);
+    onClick(rating: number): void {
+          this.rating = rating;
+          this.product.starRating = rating;
+         this.ratingClick.emit(this.product);
     }
 }
