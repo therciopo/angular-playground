@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { IProduct } from './product';
-<<<<<<< HEAD
-=======
-import { ProductService } from './product.service';
->>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
 
 @Component({
     selector: 'app-products',
@@ -17,12 +13,6 @@ export class ProductListComponent
     imageWidth = 40;
     imageMargin = 2;
     showImage = false;
-<<<<<<< HEAD
-=======
-    ratingClicked: number;
-    itemIdRatingClicked: number;
-    errorMessage: '';
->>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
 
     _listFilter: string;
     public get listFilter(): string {
@@ -33,7 +23,6 @@ export class ProductListComponent
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
 
-<<<<<<< HEAD
     constructor() {
         this.filteredProducts = this.products;
         this.listFilter = 'cart';
@@ -92,29 +81,11 @@ export class ProductListComponent
             'imageUrl': 'http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png'
         }
     ];
-=======
-    constructor(private _productService: ProductService) {
-    }
-
-    filteredProducts: IProduct[];
-    products: IProduct[] = [];
->>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
     ngOnInit(): void {
         console.log('On Init');
-<<<<<<< HEAD
-=======
-
-
-        this._productService.getProducts()
-                .subscribe(products => {
-                    this.products = products;
-                    this.filteredProducts = this.products;
-                },
-                error => this.errorMessage = <any>error);
->>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
     }
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLocaleLowerCase();
@@ -123,16 +94,6 @@ export class ProductListComponent
     }
 
     onRatingClick(product: IProduct): void {
-<<<<<<< HEAD
-=======
-        const item = this.products.filter((p: IProduct) => p.productId === product.productId);
-        if (!!item && item.length === 1) {
-            item[0].starRating = product.starRating;
-            this.ratingClicked = product.starRating;
-            this.itemIdRatingClicked = product.productId;
-        }
-
->>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
         this.pageTitle = 'Product List:' + product.starRating;
     }
 }
