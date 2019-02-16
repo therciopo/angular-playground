@@ -4,8 +4,13 @@
     </div>
     <div class="panel-body">
         <div class="row">
+<<<<<<< HEAD
             <div class='col-md-2'>Filter by:</div>
             <div class="col-md-4">
+=======
+            <div class='col-md-4'>Filter by:</div>
+            <div class="col-md-2">
+>>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
                 <input type='text'
                 [(ngModel)]='listFilter'/>
             </div>
@@ -41,13 +46,25 @@
                             [style.width.px]='imageWidth'
                             [style.margin.px]='imageMargin'>
                         </td>
+<<<<<<< HEAD
                         <td>{{p.productName}}</td>
+=======
+                        <td><a [routerLink]="['/products', p.productId]">
+                            {{ p.productName }}
+                        </a></td>                        
+>>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
                         <td>{{p.productCode | uppercase | convertToSpaces: '-'}}</td>
                         <td>{{p.releaseDate}}</td>
                         <td>{{p.price | currency:'BRL'}}</td>
                         <td>
                             <app-star [product]='p'
+<<<<<<< HEAD
                             (ratingClicked)='onRatingClick($event)'></app-star>
+=======
+                            [rating]='p.starRating' 
+                            (notify)='onNotify($event)'
+                            (ratingClick)='onRatingClick($event)'></app-star>
+>>>>>>> a864aa9956c11d7d57f63f7d01e84e4fdeea9f7c
                         </td>                        
                     </tr>
                 </tbody>
