@@ -4,7 +4,7 @@ import { Product } from '../shared/product';
 @Component({
     selector: 'app-product-list',
     templateUrl: 'productList.component.html',
-    styles: []
+    styleUrls: ['productList.component.css']
 })
 export class ProductListComponent implements OnInit {
     constructor(private data: DataService) {
