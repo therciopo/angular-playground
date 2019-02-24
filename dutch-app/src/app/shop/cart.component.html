@@ -1,0 +1,23 @@
+<h3>Shopping Cart</h3>
+<div># Items:{{ data.order.items.length }}</div>
+<div>Subtotal: {{ data.order.subtotal | currency:'CAD':'symbol'}} </div>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">#</th>
+                <th scope="col">$</th>
+                <th scope="col">Total</th>              
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let o of data.order.items'>
+                <td>{{ o.productCategory }} - {{ o.productTitle}}</td>
+                <td>{{ o.quantity }}</td>
+                <td>{{ o.unitPrice | currency:'CAD':'symbol' }}</td>
+                <td>{{ (o.unitPrice * o.quantity) | currency:'CAD':'symbol' }}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
