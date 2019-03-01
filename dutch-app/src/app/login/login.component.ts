@@ -17,6 +17,6 @@ public creds = {
 
 onLogin() {
     // Call the login service
-    alert(this.creds.username);
+
 }
 }

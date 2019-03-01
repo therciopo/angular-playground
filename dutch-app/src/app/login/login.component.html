@@ -1,22 +1,26 @@
-<body class="text-center">
+<body>
 
   <div class='container'>
 
-    <form class="form-signin" (submit)='onLogin()'>
+    <form class="form-signin" (submit)='onLogin()' #theForm='ngForm' novalidate>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <div class="form-group">
-        <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]='creds.username' required autofocus />
+        <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]='creds.username' #username='ngModel' required autofocus />
+        <div class='text-danger' *ngIf='username.touched && username.invalid && username.errors.required'>Username is required</div>
       </div>
 
       <div class="form-group">
-        <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]='creds.password' />
+        <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]='creds.password' #password='ngModel' required/>
+        <div class='text-danger' *ngIf='password.touched && password.invalid && password.errors.required'>Password is required</div>
+
       </div>
 
       <div class="form-group">
-        <input type="submit" class="btn btn-success" value="Login" />
+        <input type="submit" class="btn btn-success" value="Login" [disabled]='theForm.invalid' />
         <a routerLink="/" class="btn btn-default">Cancel</a>
       </div>
     </form>
 
   </div>
+
 </body>
