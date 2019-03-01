@@ -1,0 +1,22 @@
+<body class="text-center">
+
+  <div class='container'>
+
+    <form class="form-signin" (submit)='onLogin()'>
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="User Name" [(ngModel)]='creds.username' required autofocus />
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]='creds.password' />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Login" />
+        <a routerLink="/" class="btn btn-default">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</body>

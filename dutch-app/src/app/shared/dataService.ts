@@ -10,9 +10,14 @@ import { ProductListComponent } from '../shop/productList.component';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  public products: Product[] = [];
+  private token = '';
+  private tokenExpiration: Date;
 
+  public products: Product[] = [];
   public order: Order = new Order();
+  public get loginRequired(): boolean {
+    return this.token.length === 0 || this.tokenExpiration > new Date();
+  }
 
   loadProducts(): Observable<boolean> {
     return this.http.get('http://localhost:8800/api/Products').pipe(
